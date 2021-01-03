@@ -1,0 +1,59 @@
+<div class="workspace" style="padding-top: 100px">
+  <div class="text-left h4 ml-5 mb-5" [ngStyle]="{'color': '#F5B041'}">Project Self-Optimization</div>
+
+ <!-- Main Content  -->
+  <div class="container d-flex flex-row" [ngStyle]="{'width': '90vw', 'justify-content': 'flex-start'}">
+        <!-- List of User's Projects -->
+        <div class="container-fluid col-md-3 flex-start">
+          <ul class="list-group bg-info"  [ngStyle]="{'height': '60vh', 'overflow-y': 'scroll' }" >
+            <li class="list-group-item py-0" *ngFor="let name of projectNames" (click)='selectprojectName(name)'>{{name}}</li>
+          </ul>
+        </div>
+
+        <form [formGroup]="learningForm" (submit)="learningSubmit()">
+          <p class="d-inline-flex flex-row justify-content-start">
+            <input type="radio" name="dataSource" id="global" value="From Global">
+            <input type="radio" name="dataSource" id="lastused" value="Last Used">
+          </p>
+
+          selectedProject:    
+          learningInProcess:  
+
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Feature</th>
+                <th scope="col">Apply This</th>
+                <th scope="col">Range</th>
+                <th scope="col">Point A</th>
+                <th scope="col">Point B</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- gapOccur:           
+          gapPointA:          
+          gapPointB:          
+          mutationOccur:      
+          mutationPointA:     
+          mutationPointB:     
+          parentOccur:        
+          parentPointA:       
+          parentPointB:       
+          parentSimOccur:     
+          parentSimPointA:    
+          parentSimPointB:    
+          parentContribOccur: 
+          parentContribPointA:
+          parentContribPointB: -->
+        </form>
+  </div>
+  
+</div>

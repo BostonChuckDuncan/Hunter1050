@@ -1,0 +1,15 @@
+.bg-custom-1 {
+    background-color: #85144b;
+
+  }
+
+.workspace {
+  background: url("/assets/Images/ResearchBackground.jpg") no-repeat center center fixed;
+  background-size: cover;
+  background-position: 0px 40px;
+  position: absolute;
+
+  height: 100vh;
+  overflow-x: hidden;
+  width: 100%;
+}

@@ -1,0 +1,17 @@
+.MenuItems {
+    margin-left: 25px
+}
+
+mat-toolbar {
+    position: fixed;
+    top: 0px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.userInput {
+  width: 70px;
+  margin-left: 15px;
+}

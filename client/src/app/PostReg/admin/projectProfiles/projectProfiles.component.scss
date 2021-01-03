@@ -1,0 +1,38 @@
+body, html {
+    padding: 0 !important;
+    margin: 0 !important;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .workspace {
+    background: url("/assets/Images/RandomCache.jpg") no-repeat center center fixed;
+    background-size: cover;
+    background-position: 0px 0px;
+    position: absolute;
+  
+    height: 100vh;
+    overflow-x: hidden;
+    width: 100%;
+  
+    .tableRow {
+      width: 80px;
+      height: 20px;
+    }
+    
+
+    h1 {
+      color: lime;
+    }
+  
+    h2 {
+      color: steelblue;
+    }
+  
+    .explainText {
+      font-size: 1.3em;
+      color: black;
+      margin: 20px 11px;
+    }
+  }
+  

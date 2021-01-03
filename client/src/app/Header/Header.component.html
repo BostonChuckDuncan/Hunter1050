@@ -1,0 +1,201 @@
+<mat-toolbar color="primary" style="display: flex; flex-direction: row; ">
+  <span>
+    <a style="color: white" routerLink="/splashPage">Solution Hunter</a>
+  </span>
+
+  <div class="btn-group" *ngIf="this.cache.StorageGetBool('navVisitor')">
+    <button [matMenuTriggerFor]="OverviewMenu" class="MenuItems" color="accent" mat-raised-button >
+      Overview
+    </button>
+    <mat-menu #OverviewMenu="matMenu">
+      <button mat-menu-item routerLink="/whatishunter">What is Hunter</button>
+      <button mat-menu-item routerLink="/hardproblem">
+        What's a 'Hard' Problem
+      </button>
+      <button mat-menu-item routerLink="/features">Features</button>
+      <button mat-menu-item routerLink="/usinghunter">Using Hunter</button>
+      <button mat-menu-item routerLink="/aboutAIGA">
+        Artificial Intelligence
+      </button>
+    </mat-menu>
+  </div>
+
+  <div class="btn-group" *ngIf="this.cache.StorageGetBool('navVisitor')">
+    <button [matMenuTriggerFor]="GuidesMenu" class="MenuItems" color="accent" mat-raised-button >
+      Guides
+    </button>
+    <mat-menu #GuidesMenu="matMenu">
+      <button mat-menu-item routerLink="/examples">Try Out Examples</button>
+      <button mat-menu-item routerLink="/tutorials">Tutorials</button>
+      <button mat-menu-item routerLink="/aboutResearch">
+        Research Applications
+      </button>
+    </mat-menu>
+  </div>
+
+  <div class="btn-group" *ngIf="this.cache.StorageGetBool('navVisitor')">
+    <button [matMenuTriggerFor]="ContactsMenu" class="MenuItems" color="accent" mat-raised-button >
+      Contacts
+    </button>
+    <mat-menu #ContactsMenu="matMenu">
+      <button mat-menu-item routerLink="/aboutUs">About Us</button>
+      <button mat-menu-item routerLink="/contactUs">Contact Us</button>
+      <button mat-menu-item routerLink="/support">Support</button>
+      <button mat-menu-item routerLink="/consulting">
+        Consulting Services
+      </button>
+    </mat-menu>
+  </div>
+
+  <div class="btn-group" *ngIf="this.cache.StorageGetBool('navVisitor')">
+    <button [matMenuTriggerFor]="SignupMenu" class="MenuItems" color="accent" mat-raised-button >
+      SignUp
+    </button>
+    <mat-menu #SignupMenu="matMenu">
+      <button mat-menu-item routerLink="#">See your System Admin</button>
+    </mat-menu>
+  </div>
+
+  <span class="example-spacer"></span>
+
+<!------>
+ 
+  <div class="btn-group" dropdown *ngIf="this.cache.StorageGetBool('navAdmin')">
+    <button id="button-animated" dropdownToggle type="button" class="btn btn-outline-info dropdown-toggle"
+            aria-controls="dropdown-animated"
+            [ngStyle]="{'height': '35px', 'padding': '0 7px', 'margin-right': '20px'}">
+            Administration<span class="caret"></span>
+    </button>
+    <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu"
+        role="menu" aria-labelledby="button-animated">
+      <li role="menuitem"><a class="dropdown-item" href="/adminUserManage">User Management</a></li>
+      <li role="menuitem"><a class="dropdown-item" href="/projectConfiguration">Project Configuration</a></li>
+      <li role="menuitem"><a class="dropdown-item" href="/projectLearning">Automatic Learning</a></li>
+    </ul>
+  </div>
+
+  <div class="mr-auto d-inline-flex">
+    <div class="align-self-center mr-auto" *ngIf="messageText.length > 0"
+      [ngStyle]="{'z-index': '4', 'background-color': 'green', 'color': 'white', 'height': '30px', 'border': '2px solid red'}">
+    <p class="pb-2 pl-2 pr-2" >{{messageText}}</p>
+    </div>
+  </div>
+
+  <div class="ml-auto d-inline-flex">
+    <div class="ml-auto" *ngIf="(this.cache.StorageGetBool('navVisitor')); else showLogout">
+      <form class="form-inline ml-sm-3 my-2 my-lg-0 " [formGroup]="loginForm" (ngSubmit)="login()">
+        <input id="username" class="form-control mr-sm-2" [ngStyle]="{'margin-right': '15px', 'width': '120px', 'height': '30px'}" type="text" formControlName="username" placeholder="Username" required>
+        <input id="password" class="form-control mr-sm-2" [ngStyle]="{'width': '120px', 'height': '30px'}" type="password" formControlName="password" placeholder="Password" required>
+
+        <button Type="submit" class="MenuItems" color="accent" mat-raised-button >
+          Login
+        </button>
+      </form>
+    </div>
+
+    <ng-template #showLogout>
+      <div class="ml-20 d-flex-inline row" *ngIf="!this.cache.StorageGetBool('navVisitor')">
+        <div class="mr-2 pt-1">Welcome {{welcomeName | titlecase}} </div>
+        <button type="button" (click)="gotoLogout()"  class="btn btn-success mr-3">
+          Logout
+        </button>
+      </div>
+    </ng-template>
+  </div>
+
+
+<!------>
+
+
+
+
+
+<div class="btn-group" dropdown *ngIf="this.cache.StorageGetBool('navUser') || this.cache.StorageGetBool('navAdmin')">
+  <button
+    id="button-animated5"
+    dropdownToggle
+    type="button"
+    class="btn btn-outline-info dropdown-toggle"
+    aria-controls="dropdown-animated"
+    [ngStyle]="{'height': '35px', 'padding': '0 7px', 'margin-right': '20px'}">
+    Project Design<span class="caret"></span>
+  </button>
+  <ul
+    id="dropdown-animated5"
+    *dropdownMenu
+    class="dropdown-menu"
+    role="menu"
+    aria-labelledby="button-animated">
+    <li role="menuitem">
+      <a class="dropdown-item" href="/projectLayout">Project Structure</a>
+    </li>
+    <li role="menuitem">
+      <a class="dropdown-item" href="/projectLayout">Solution Evaluation</a>
+    </li>
+    <li role="menuitem">
+      <a class="dropdown-item" href="/projectLayout">Project Solution Map</a>
+    </li>
+  </ul>
+</div>
+
+<div class="btn-group" dropdown *ngIf="this.cache.StorageGetBool('navUser') || this.cache.StorageGetBool('navAdmin')">
+  <button
+    id="button-animated6"
+    dropdownToggle
+    type="button"
+    class="btn btn-outline-info dropdown-toggle"
+    aria-controls="dropdown-animated"
+    [ngStyle]="{'height': '35px', 'padding': '0 7px', 'margin-right': '20px'}">
+    Launch Project<span class="caret"></span>
+  </button>
+  <ul
+    id="dropdown-animated6"
+    *dropdownMenu
+    class="dropdown-menu"
+    role="menu"
+    aria-labelledby="button-animated">
+  </ul>
+</div>
+
+<div class="btn-group" dropdown *ngIf="this.cache.StorageGetBool('navUser') || this.cache.StorageGetBool('navAdmin')">
+  <button
+    id="button-animated"
+    dropdownToggle
+    type="button"
+    class="btn btn-outline-info dropdown-toggle"
+    aria-controls="dropdown-animated"
+    [ngStyle]="{'height': '35px', 'padding': '0 7px', 'margin-right': '20px'}">
+    Administration<span class="caret"></span>
+  </button>
+  <ul
+    id="dropdown-animated"
+    *dropdownMenu
+    class="dropdown-menu"
+    role="menu"
+    aria-labelledby="button-animated">
+    <li role="menuitem">
+      <a class="dropdown-item" href="/adminUserManage">User Management</a>
+    </li>
+    <li role="menuitem">
+      <a class="dropdown-item" href="/projectConfiguration"
+        >Project Configuration</a
+      >
+    </li>
+    <li role="menuitem">
+      <a class="dropdown-item" href="/projectLearning">Automatic Learning</a>
+    </li>
+  </ul>
+</div>
+
+<div class="mr-auto d-inline-flex">
+  <div
+    class="align-self-center mr-auto"
+    *ngIf="messageText.length > 0"
+    [ngStyle]="{'z-index': '4', 'background-color': 'green', 'color': 'white', 'height': '30px', 'border': '2px solid red'}">
+    <p class="pb-2 pl-2 pr-2">{{messageText}}</p>
+  </div>
+</div>
+
+<!------>
+</mat-toolbar>
+

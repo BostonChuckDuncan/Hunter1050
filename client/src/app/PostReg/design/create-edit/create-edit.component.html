@@ -1,0 +1,13 @@
+<div class="workspace" style="padding-top: 100px">
+   <div class="text-left h4 ml-5 mb-5" [ngStyle]="{'color': '#F5B041'}">Create/Edit Projects</div>
+
+
+  <div [ngStyle]="{'width': '90vw', 'height': '80vh', 'display': 'flex', 'flex-direction': 'col', 'justify-content': 'flex-start'}">
+    <div class="container-fluid col-md-3 ml-md-4 d-flex row justify-content-start">
+      <ul class="list-group"  [ngStyle]="{'height': '60vh', 'overflow-y': 'scroll', 'background-color': '#F5DBAA' }" >
+        <li class="list-group-item py-0" *ngFor="let name of projectNames; let i = index" (click)="selectProjectName(i)">{{name}}</li>
+      </ul>
+    </div>
+</div>
+
+</div>

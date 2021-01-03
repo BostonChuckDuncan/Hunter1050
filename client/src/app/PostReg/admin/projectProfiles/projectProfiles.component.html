@@ -1,0 +1,101 @@
+<div class="workspace" style="padding-top: 100px">
+  <div class="text-left h4 ml-5 mb-5" [ngStyle]="{'color': '#F5B041'}">Project Profiles</div>
+
+  <!-- Main Content  -->
+  <div class="container d-flex flex-row" [ngStyle]="{'width': '90vw', 'justify-content': 'flex-start'}">
+    <form [formGroup]="profilesForm" (ngSubmit)="submitProfiles()">
+      <table class="table table-bordered table-hover table-sm" [ngStyle]="{'background-color': '#F5DBAA'}">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Category</th>
+            <th scope="col">Description</th>
+            <th scope="col">Formula</th>
+            <th scope="col">Occurs</th>
+            <th scope="col">Point A</th>
+            <th scope="col">Point B</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Generation Gap</td>
+            <td>Allows Parent surving Generation</td>
+            <td>FlatLine</td>
+            <td><input type=text class="tableRow" formControlName="gapOccur"></td>
+            <td><input type=text class="tableRow" formControlName="gapPointA"></td>
+            <td><input type=text class="tableRow" formControlName="gapPointB"></td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Mutation Rate</td>
+            <td>Chance of Attribute override</td>
+            <td>FlatLine</td>
+            <td><input type=text class="tableRow" formControlName="mutationOccur"></td>
+            <td><input type=text class="tableRow" formControlName="mutationPointA"></td>
+            <td><input type=text class="tableRow" formControlName="mutationPointB"></td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Virus</td>
+            <td>Chance of major Attack</td>
+            <td>Fitness Curve</td>
+            <td><input type=text class="tableRow" formControlName="virusOccur"></td>
+            <td><input type=text class="tableRow" formControlName="virusPointA"></td>
+            <td><input type=text class="tableRow" formControlName="virusPointB"></td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>Parenting</td>
+            <td>Normal or Surrogate Parent</td>
+            <td>Based on Partnership</td>
+            <td><input type=text class="tableRow" formControlName="parentOccur"></td>
+            <td><input type=text class="tableRow" formControlName="parentPointA"></td>
+            <td><input type=text class="tableRow" formControlName="parentPointB"></td>
+          </tr>
+          <tr>
+            <th scope="row">5</th>
+            <td>Parent Selection</td>
+            <td>Chance of Parent similarity</td>
+            <td>Offset Decay</td>
+            <td><input type=text class="tableRow" formControlName="parentSimOccur"></td>
+            <td><input type=text class="tableRow" formControlName="parentSimPointA"></td>
+            <td><input type=text class="tableRow" formControlName="parentSimPointB"></td>
+          </tr>
+          <tr>
+            <th scope="row">6</th>
+            <td>Attribute Merge</td>
+            <td>Variance of Parent contributing a factor</td>
+            <td>FlatLine</td>
+            <td><input type=text class="tableRow" formControlName="parentContribOccur"></td>
+            <td><input type=text class="tableRow" formControlName="parentContribPointA"></td>
+            <td><input type=text class="tableRow" formControlName="parentContribPointB"></td>
+          </tr>
+          <tr>
+            <th scope="row">7</th>
+            <td>Child Survival</td>
+            <td>Lack of sufficient health during birth</td>
+            <td>FlatLine</td>
+            <td><input type=text class="tableRow" formControlName="childSurviveOccur"></td>
+            <td><input type=text class="tableRow" formControlName="childSurvivePointA"></td>
+            <td><input type=text class="tableRow" formControlName="childSurvivePointB"></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="flex-row text-md-center" style="margin-top: 25px;">
+        <button type="button" (click)="updateButtonText()" class="btn btn-success ml-3">Update</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="flex-row" style="margin-top: 50px;">
+    <h3 class="text-left h4 ml-5 mb-1" [ngStyle]="{'color': '#F5B041'}">Random Number Cache</h3>
+    <div class="text-left offset-md-2 col-md-4">
+      <p [ngStyle]="{'color': 'black', 'background-color': '#F5DBAA'}">
+        Blocks Total = 100, Blocks Used = 447, High Water Mark = (80, 0), Remaining Space = 1,024,500, Trigger Point =
+        85%
+      </p>
+    </div>
+  </div>
+
+</div>
