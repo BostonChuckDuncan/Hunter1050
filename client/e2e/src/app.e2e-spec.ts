@@ -8,13 +8,9 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display prereg Toolbar with link to this page', () => {
-    // page.navigateTo();
-    browser.get('http://localhost:4200');
-    browser.waitForAngular();
-
-//    var hunterLink = (by.link('/splashPage'));
-    expect(page.getTitleText()).toEqual('Hunter-SPA app is running!');
+  it('should display welcome message', async () => {
+    await page.navigateTo();
+    expect(await page.getTitleText()).toEqual('client app is running!');
   });
 
   afterEach(async () => {

@@ -17,8 +17,6 @@ using System.Text;
 using System.Net;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json;
-using AutoMapper;
 
 namespace HunterServer
 {
@@ -35,11 +33,7 @@ namespace HunterServer
         {
             services.AddDbContext<DataContext>(options =>
                   options.UseSqlServer(_config.GetConnectionString("HunterCoreDb")));
-            services.AddControllers().AddNewtonsoftJson(opt =>
-            {
-                opt.SerializerSettings.ReferenceLoopHandling =
-                Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-            });
+            services.AddControllers();
             services.AddCors();
 
             //services.AddAutoMapper(typeof(ProjectRepository).Assembly);
@@ -89,7 +83,7 @@ namespace HunterServer
             // app.UseHttpsRedirection();
 
             app.UseRouting();
-            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));
 
             app.UseDefaultFiles();
             app.UseStaticFiles();

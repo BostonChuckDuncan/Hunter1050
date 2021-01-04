@@ -1,2 +1,5 @@
-<app-Header></app-Header>
-<router-outlet></router-outlet>
+<h1>{{title}}</h1>
+
+<ul>
+    <li *ngFor="let user of users; let i = index">{{i}} - {{user.userName}}</li>
+</ul>
