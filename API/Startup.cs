@@ -17,6 +17,8 @@ using System.Text;
 using System.Net;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
+using API.Interfaces;
+using API.Services;
 
 namespace HunterServer
 {
@@ -31,6 +33,7 @@ namespace HunterServer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<ITokenService, TokenService>();
             services.AddDbContext<DataContext>(options =>
                   options.UseSqlServer(_config.GetConnectionString("HunterCoreDb")));
             services.AddControllers();
