@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using API.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+//using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -35,23 +36,17 @@ namespace HunterServer
         {
             services.AddScoped<ITokenService, TokenService>();
             services.AddDbContext<DataContext>(options =>
-                  options.UseSqlServer(_config.GetConnectionString("HunterCoreDb")));
+                //                options.UseSqlServer(_config.GetConnectionString("HunterCoreDb")));
+                options.UseSqlite(_config.GetConnectionString("HunterCoreLite")));
             services.AddControllers();
             services.AddCors();
-
-            //services.AddAutoMapper(typeof(ProjectRepository).Assembly);
-            // services.AddScoped<IAuthRepository, AuthRepository>();
-            // services.AddScoped<ILogRepository, LogRepository>();
-            // services.AddScoped<IUserRepository, UserRepository>();
-            // services.AddScoped<IRandomCacheRepository, RandomCacheRepository>();
-
             // services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            //     .AddJwtBearer(options => {
-            //         options.TokenValidationParameters = new TokenValidationParameters
+            //     .AddJwtBearer(options =>
+            //     {
+            //         options.TokenValidateParameters = new TokenValidationParameters
             //         {
-            //             ValidateIssuerSigningKey = true,
-            //             IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII
-            //                 .GetBytes(Configuration.GetSection("AppSettings:Token").Value)),
+            //             ValidateIssuerSigningKey,
+            //             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["TokenKey"])),
             //             ValidateIssuer = false,
             //             ValidateAudience = false
             //         };
